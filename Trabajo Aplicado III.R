@@ -66,10 +66,10 @@ DatosPais3$Países <-nombres_paises
 #Gráficos de dispersion en ggplot de las variables 
 
 ggplot(DatosPais3, aes(x = CoeGini, y = IDH, label = Países)) +
-  geom_point(color = "skyblue", size = 3) +
+  geom_point(shape = 21, fill = "skyblue", color = "black", size = 3, stroke = 0.8) + # Círculos con borde negro
   geom_smooth(method = "lm", color = "blue") +
-  geom_text(vjust = -0.5, hjust = 0.5, size = 3) +  # Ajustar etiquetas cerca del punto
-  labs(title = "Coeficiente de Gini vs Índice de Desarrollo Humano (IDH) en América Latina",
+  geom_text_repel(size = 3, box.padding = 0.35, point.padding = 0.5, max.overlaps = 10) +
+  labs(title = "Coeficiente de Gini vs Índice de Desarrollo Humano (IDH)",
        subtitle = paste("Coeficiente de correlación de Pearson:", round(cor_pearson, 2)),
        x = "Coeficiente de Gini",
        y = "Índice de Desarrollo Humano (IDH)") +
