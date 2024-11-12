@@ -85,6 +85,119 @@ ggplot(DatosPais3, aes(x = IPG, y = IDH, label = Países)) +
        y = "Índice de Desarrollo Humano (IDH)") +
   theme_minimal()
 
+########ALI CODIGOS#######
+
+
+####RELACION ENTRE GASTO EN EDUCACION Y COEGINI
+
+
+# Crear matriz de correlaciones entre Gasto en Educación y Coeficiente de Gini
+cor_matrix <- cor(DatosPais2[, c("GastoEd", "CoeGini")], use = "complete.obs")
+
+# Crear correlograma
+corrplot(cor_matrix, method = "color", type = "upper", 
+         title = "Correlograma de Gasto en Educación y Coeficiente de Gini", 
+         mar = c(0, 0, 2, 0))
+
+# Coeficiente de Pearson entre Gasto en Educación y Coeficiente de Gini
+cor_pearson <- cor(DatosPais2$GastoEd, DatosPais2$CoeGini, use = "complete.obs")
+print(cor_pearson)
+
+# Parte para hacer que los números de país ahora tengan nombres
+nombres_paises <- c("Perú", "Chile", "Bolivia", "Ecuador", "Colombia", "Argentina", 
+                    "Costa Rica", "Uruguay", "Brasil", "Republica Dominicana", 
+                    "Mexico", "Honduras", "El Salvador", "Paraguay", "Finlandia", 
+                    "España", "Canada", "Noruega", "Portugal", "Italia")
+
+DatosPais3 <- DatosPais2
+DatosPais3$Países <- nombres_paises
+
+# Gráfico de dispersión en ggplot de Gasto en Educación vs Coeficiente de Gini
+ggplot(DatosPais3, aes(x = GastoEd, y = CoeGini, label = Países)) +
+  geom_point(color = "skyblue", size = 3) +
+  geom_smooth(method = "lm", color = "blue") +
+  geom_text(vjust = -0.5, hjust = 0.5, size = 3) +  # Ajustar etiquetas cerca del punto
+  labs(title = "Gasto en Educación vs Coeficiente de Gini en América Latina y países OCDE",
+       subtitle = paste("Coeficiente de correlación de Pearson:", round(cor_pearson, 2)),
+       x = "Gasto en Educación (%)",
+       y = "Coeficiente de Gini") +
+  theme_minimal()
+
+
+###RELACION ENTRE GRADUACIONES DE SECUNDARIA E IDH
+
+# Crear matriz de correlaciones entre Graduaciones de Secundaria y IDH
+cor_matrix <- cor(DatosPais2[, c("PorGradSecundaria", "IDH")], use = "complete.obs")
+
+# Crear correlograma
+corrplot(cor_matrix, method = "color", type = "upper", 
+         title = "Correlograma de Graduaciones de Secundaria y IDH", 
+         mar = c(0, 0, 2, 0))
+
+# Coeficiente de Pearson entre Graduaciones de Secundaria y IDH
+cor_pearson <- cor(DatosPais2$PorGradSecundaria, DatosPais2$IDH, use = "complete.obs")
+print(cor_pearson)
+
+# Parte para hacer que los números de país ahora tengan nombres
+nombres_paises <- c("Perú", "Chile", "Bolivia", "Ecuador", "Colombia", "Argentina", 
+                    "Costa Rica", "Uruguay", "Brasil", "Republica Dominicana", 
+                    "Mexico", "Honduras", "El Salvador", "Paraguay", "Finlandia", 
+                    "España", "Canada", "Noruega", "Portugal", "Italia")
+
+DatosPais3 <- DatosPais2
+DatosPais3$Países <- nombres_paises
+
+# Gráfico de dispersión en ggplot de Graduaciones de Secundaria vs IDH
+ggplot(DatosPais3, aes(x = PorGradSecundaria, y = IDH, label = Países)) +
+  geom_point(color = "skyblue", size = 3) +
+  geom_smooth(method = "lm", color = "blue") +
+  geom_text(vjust = -0.5, hjust = 0.5, size = 3) +  # Ajustar etiquetas cerca del punto
+  labs(title = "Graduaciones de Secundaria vs Índice de Desarrollo Humano (IDH)",
+       subtitle = paste("Coeficiente de correlación de Pearson:", round(cor_pearson, 2)),
+       x = "Porcentaje de Graduaciones de Secundaria",
+       y = "Índice de Desarrollo Humano (IDH)") +
+  theme_minimal()
+
+
+#### RELACION COEGINI E IPG
+
+# Crear matriz de correlaciones entre Coeficiente de Gini y IPG
+cor_matrix <- cor(DatosPais2[, c("CoeGini", "IPG")], use = "complete.obs")
+
+# Crear correlograma
+corrplot(cor_matrix, method = "color", type = "upper", 
+         title = "Correlograma de Coeficiente de Gini y IPG", 
+         mar = c(0, 0, 2, 0))
+
+# Coeficiente de Pearson entre Coeficiente de Gini y IPG
+cor_pearson <- cor(DatosPais2$CoeGini, DatosPais2$IPG, use = "complete.obs")
+print(cor_pearson)
+
+# Parte para hacer que los números de país ahora tengan nombres
+nombres_paises <- c("Perú", "Chile", "Bolivia", "Ecuador", "Colombia", "Argentina", 
+                    "Costa Rica", "Uruguay", "Brasil", "Republica Dominicana", 
+                    "Mexico", "Honduras", "El Salvador", "Paraguay", "Finlandia", 
+                    "España", "Canada", "Noruega", "Portugal", "Italia")
+
+DatosPais3 <- DatosPais2
+DatosPais3$Países <- nombres_paises
+
+# Gráfico de dispersión en ggplot de Coeficiente de Gini vs IPG
+ggplot(DatosPais3, aes(x = CoeGini, y = IPG, label = Países)) +
+  geom_point(color = "skyblue", size = 3) +
+  geom_smooth(method = "lm", color = "blue") +
+  geom_text(vjust = -0.5, hjust = 0.5, size = 3) +  # Ajustar etiquetas cerca del punto
+  labs(title = "Coeficiente de Gini vs Índice de Paz Global (IPG)",
+       subtitle = paste("Coeficiente de correlación de Pearson:", round(cor_pearson, 2)),
+       x = "Coeficiente de Gini",
+       y = "Índice de Paz Global (IPG)") +
+  theme_minimal()
+
+
+
+
+
+
 
 #Interpretación 
 
