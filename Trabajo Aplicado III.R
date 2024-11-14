@@ -194,11 +194,22 @@ ggplot(DatosPais3, aes(x = CoeGini, y = IPG, label = Países)) +
   theme_minimal()
 
 
-
-
-
-
-
 #Interpretación 
 
+Un coeficiente de correlación de pearson de -0,79 apunta a la existencia de una correlación negativa y fuerte entre el coeficiente de Gini y el Índice de Paz Global.
+Lo que indica que mientras exista un Coeficiente de Gini más alto , existirá también un menor nivel de paz.
+Se puede observar una Regresión lineal que muestra la tendencia central de la relación ,
+mientras más aumenta el Coeficiente de Gini también aumenta el Índice de paz Global, lo que deja como resultado un menor nivel de paz.
+
+En referencia a los distintos países en estudio, Noruega y Finlandia cuentan con un bajo coeficiente de Gini,
+y por consiguiente un bajo índice de Paz. Por otro lado, Colombia y Brasil muestran un alto coeficiente de Gini y un alto Nivel de Paz Índice de paz, es decir,
+un menor nivel de paz. Seguidamente, México y Honduras cuentan con valores similares en desigualdad, sin embargo el Índice de Paz es más alta para Honduras, 
+lo que apunta a un entorno menos pacifico.Por último, Costa Rica muestra una situación característica,  
+se encuentra desfasado en relación a los países que cuentan con un coeficiente de Gini similar suyo,
+lo que muestra un nivel de paz mucho más elevado al esperado según su nivel de desigualdad.
+
+Resulta evidente que existe una relación negativa y significativa entre la desigualdad y el nivel de paz.
+Los países con menor desigualdad (menor Coeficiente de Gini) cuentan con un mejor Índice de Paz Global,
+mientras que los países con mayor desigualdad suelen presentar mayores niveles de conflictividad o menor paz.
+Esta tendencia refleja que la desigualdad influye en la estabilidad social y en las condiciones de paz de un país.
 
